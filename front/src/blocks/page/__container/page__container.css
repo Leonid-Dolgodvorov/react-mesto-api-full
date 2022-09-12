@@ -1,0 +1,19 @@
+.page__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 919px) {
+  .page__container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .page__container {
+    padding: 0;
+  }
+}
