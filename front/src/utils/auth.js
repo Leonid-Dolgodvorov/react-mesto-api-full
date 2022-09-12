@@ -27,7 +27,6 @@ export const authorize = (email, password) => {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: 'include',
     body: JSON.stringify({
       email: email,
       password: password,
@@ -49,9 +48,8 @@ export const getData = (token) => {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': {token},
+      'Authorization': `Bearer ${token}`,
     },
-    credentials: 'include',
   })
   .then(returnResJson)
 } 

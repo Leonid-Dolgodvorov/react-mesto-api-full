@@ -14,7 +14,6 @@ class Api {
   getInitialCards() {
     return fetch(`${this._url}cards`, {
       headers: this._headers,
-      credentials: 'include'
     })
       .then((res) => {
         return this.returnResJson(res)
@@ -24,7 +23,6 @@ class Api {
   getUserInfo() {
     return fetch(`${this._url}users/me`, {
       headers: this._headers,
-      credentials: 'include'
     })
       .then(res => this.returnResJson(res))
   }
@@ -33,7 +31,6 @@ class Api {
     return fetch(`${this._url}users/me`, {
       method: 'PATCH',
       headers: this._headers,
-      credentials: 'include',
       body: JSON.stringify({
         name,
         about
@@ -46,7 +43,6 @@ class Api {
     return fetch(`${this._url}users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
-      credentials: 'include',
       body: JSON.stringify({
         avatar: avatarLink
       })
@@ -58,7 +54,6 @@ class Api {
     return fetch(`${this._url}cards`, {
       method: 'POST',
       headers: this._headers,
-      credentials: 'include',
       body: JSON.stringify({
         name,
         link
@@ -71,7 +66,6 @@ class Api {
     return fetch(`${this._url}cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-      credentials: 'include'
     })
       .then(res => this.returnResJson(res))
   }
@@ -80,7 +74,6 @@ class Api {
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: 'PUT',
       headers: this._headers,
-      credentials: 'include'
     })
       .then(res => this.returnResJson(res))
   }
@@ -89,7 +82,6 @@ class Api {
     return fetch(`${this._url}cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-      credentials: 'include'
     })
       .then(res => this.returnResJson(res))
   }
@@ -98,7 +90,6 @@ class Api {
     return fetch(`${this._url}cards/${cardId}/likes/`, {
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
       headers: this._headers,
-      credentials: 'include'
     })
     .then(res => this.returnResJson(res))
   }
@@ -110,7 +101,7 @@ const api = new Api({
   url: "https://api.front.dolgodvorov.nomoredomains.sbs/",
   headers: {
     "Content-Type": "application/json",
-    'Authorization': {jwt},
+    'Authorization': `Bearer ${jwt}`,
   },
 });
 
