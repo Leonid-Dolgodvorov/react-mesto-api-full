@@ -47,7 +47,7 @@ function App() {
     } else {
       handleSignOut()
     }            
-  }, [], [loggedIn])
+  }, [])
   
   const handleCardClick = (card) => {
     setSelectedCard(card)
